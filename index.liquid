@@ -32,6 +32,30 @@
   {% if name.size <= 4 %}
   <li>{{ name }}</li>
   {% endif %}
+{% endfor %} 
+</ul>
+
+{% comment %}
+    Using Objects (store data)
+{% endcomment %}
+{% assign collection = collections['featured-collection'] %}
+{{ collection.title }}
+
+<ul>
+{% for product in collection.products %}
+ <a href="{{ product.url }}"><li>{{ product.title }} - {{ product.price | money }} </li></a>  
+{% endfor %}  
+</ul>
+
+//Using unless statement
+{% assign collection = collections['featured-collection'] %}
+{{ collection.title }}
+<ul>
+{% for product in collection.products %}
+ <a href="{{ product.url }}"><li>{{ product.title }} - {{ product.price | money }} </li></a>  
+  {% unless product.available %}
+     SOLDOUT
+    {% endunless %} 
 {% endfor %}  
 </ul>
 
