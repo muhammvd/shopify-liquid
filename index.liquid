@@ -59,3 +59,36 @@
 {% endfor %}  
 </ul>
 
+
+{% comment %}
+    Using Schema
+{% endcomment %}
+
+//add new stying from schema 
+{% assign collection = collections['featured-collection'] %}
+{{ collection.title }}
+
+<ul>
+{% for product in collection.products %}
+ <a style="color:{{ settings.link_color }}" href="{{ product.url }}"><li>{{ product.title }} - {{ product.price | money }} </li>
+   {% unless product.available %}
+     SOLDOUT
+    {% endunless %} 
+ </a>  
+
+{% endfor %}  
+</ul>
+
+
+//added new schema to settings.json
+{
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "link_color",
+        "label": "Link Color",
+        "default": "#000"
+      }
+    ]
+  }
