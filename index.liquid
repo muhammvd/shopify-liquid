@@ -1,0 +1,37 @@
+{% comment %}
+    Tags and Filters
+{% endcomment %}
+
+//Tags and Filters
+{% assign variable  = 'Hello' %}
+{{variable}}
+
+//Filters
+{% assign variable  = 5|plus: 5 %}
+{{variable}}
+
+//Arrays
+{% assign array_string  = '1,2,3,4,5' %}
+{% assign array  = array_string | split: ',' %}
+{{ array }}
+
+//For Loop
+{% assign array_string  = 'Musa,John,Audu,Abdul,Zainab' %}
+{% assign array  = array_string | split: ',' %}
+<ul>
+{% for name in array %}
+  <li>{{ name }}</li>
+{% endfor %}  
+</ul>
+
+//If statement
+{% assign array_string  = 'Musa,John,Audu,Abdul,Zainab' %}
+{% assign array  = array_string | split: ',' %}
+<ul>
+{% for name in array %}
+  {% if name.size <= 4 %}
+  <li>{{ name }}</li>
+  {% endif %}
+{% endfor %}  
+</ul>
+
