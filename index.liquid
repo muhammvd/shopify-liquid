@@ -92,3 +92,25 @@
       }
     ]
   }
+
+  //Liquid variables
+All values in liquid are truthy except nil and false, example
+{{% assign tobi = 'tobi' %}}
+
+{% if tobi %}
+  {{tobi}}
+{% endif %}
+
+//strip white space in liquid code
+{%- -for value- -%} or {{- -for output- -}}
+
+//switch case statement
+{% assign handle = 'cake' %}
+{% case handle %}
+  {% when 'cake' %}
+     This is a cake
+  {% when 'cookie' %}
+     This is a cookie
+  {% else %}
+     This is not a cake nor a cookie
+{% endcase %
